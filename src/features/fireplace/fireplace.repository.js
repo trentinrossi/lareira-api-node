@@ -14,12 +14,12 @@ class Repository {
       .lean();
   }
 
-  count(conditions = {}) {    
+  count(conditions = {}) {
     return Fireplace.count(conditions);
   }
 
-  findOne(conditions = {}) {
-    return Fireplace.findOne(conditions);
+  findOne(conditions = {}, projection = null, options = {}) {
+    return Fireplace.findOne(conditions, projection, options);
   }
 
   update(id, fireplace) {
@@ -30,8 +30,8 @@ class Repository {
     );
   }
 
-  delete(conditions = {}) {
-    return Fireplace.delete(conditions);
+  delete(conditions = {}) {    
+    return Fireplace.deleteOne(conditions);
   }
 }
 

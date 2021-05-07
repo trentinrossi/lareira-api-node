@@ -1,6 +1,5 @@
 const appContext = require('../../_shared/database/AppContext');
 const mongoose = require('mongoose');
-const mongooseDelete = require('mongoose-delete');
 const mongooseTimestamp = require('mongoose-timestamp');
 
 const schema = new mongoose.Schema(
@@ -23,7 +22,6 @@ const schema = new mongoose.Schema(
   }
 );
 
-schema.plugin(mongooseDelete, { overrideMethods: true });
 schema.plugin(mongooseTimestamp);
 
 module.exports.FireplaceSchema = schema;
