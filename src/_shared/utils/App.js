@@ -1,9 +1,7 @@
 const appContext = require('../database/AppContext');
 const express = require('express');
+const bodyParser = require('body-parser');
 const routerLoader = require('./routesLoader');
-
-const database = require('../multiple-clients-mongo');
-
 class App {
   constructor() {
     if (!process.env.PORT) {
@@ -25,10 +23,8 @@ class App {
   async init() {
     appContext.connect();
 
-    // database.connect('PARAMETRIZATION', process.env.MONGO_PORTAL);
-    // database.connect('METRICS', process.env.MONGO_METRICS);
-
     this.sever = express();
+    this.sever.use(bodyParser.urlencoded({ extended: true }));
     this.sever.use(express.json());
 
     routerLoader(this.sever);

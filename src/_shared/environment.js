@@ -12,11 +12,5 @@ module.exports = {
     audience: 'LareiraRossi@2021',
     issuer: process.env.IDENTITY_HOST,
     algorithms: ['RS256'],
-  },
-  jwtSecret: {
-    cache: true,
-    rateLimit: true,
-    jwksRequestsPerMinute: 5,
-    jwksUri: process.env.IDENTITY_JWKSURI,
-  },
+  }
 };
