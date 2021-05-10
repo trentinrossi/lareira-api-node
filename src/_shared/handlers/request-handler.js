@@ -40,6 +40,14 @@ class RequestHandler {
     return res.status(httpStatus.OK).json(body);
   }
 
+  onLogin(data, res) {
+    const body = {      
+      access_token: data,
+    };
+
+    return res.status(httpStatus.OK).json(body);
+  }
+
   onCreated(data = {}, res) {
     return res.status(httpStatus.CREATED).json(data);
   }
