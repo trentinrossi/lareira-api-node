@@ -20,6 +20,11 @@ async function login(req, res) {
   }
 }
 
+async function logout(req, res) {
+  // Implementar uma forma de guardar o token no Redis
+  onError(`Not implemented yet`, ``, res);
+}
+
 async function signup(req, res) {
   const { name, username, email, password } = req.body;
   const hash = await bcrypt.hash(password, 10);
@@ -39,6 +44,4 @@ async function signup(req, res) {
   }
 }
 
-function logout(req, res) {}
-
-module.exports = { login, signup };
+module.exports = { login, signup, logout };
