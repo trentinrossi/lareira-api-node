@@ -8,7 +8,7 @@ function checkToken(req, res, next) {
   if (token == null) return res.sendStatus(401);
 
   jwt.verify(token, env.configJwt.audience, (err, user) => {
-    if (err) return res.sendStatus(403);
+    if (err) return res.status(403).json({ message: err.message });
 
     req.user = user;
     next();
